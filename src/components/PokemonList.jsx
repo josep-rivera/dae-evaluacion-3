@@ -4,7 +4,6 @@ import { Zap, Flame, Droplet, Leaf, Snowflake, Star } from "lucide-react";
 function PokemonList() {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const icons = [Zap, Flame, Droplet, Leaf, Snowflake, Star];
 
   useEffect(() => {
@@ -14,36 +13,32 @@ function PokemonList() {
         setPokemons(data.results);
         setLoading(false);
       })
-      .catch((error) => {
-        console.error("Error:", error);
-        setLoading(false);
-      });
+      .catch(() => setLoading(false));
   }, []);
 
-  if (loading) {
+  if (loading)
     return (
-      <div className="text-center text-white text-xl">Cargando Pokémon...</div>
+      <div className="text-center text-gray-600 text-lg py-10">
+        Cargando Pokémon...
+      </div>
     );
-  }
 
   return (
-    <div className="bg-white/95 rounded-3xl shadow-2xl p-8">
-      <h2 className="text-3xl font-bold text-center text-purple-600 mb-6">
+    <div className="bg-white rounded-xl shadow p-6 md:p-10">
+      <h2 className="text-2xl font-semibold text-gray-900 text-center mb-6">
         Pokémon Destacados
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {pokemons.map((pokemon, index) => {
           const Icon = icons[index];
           return (
             <div
               key={pokemon.name}
-              className="bg-linear-to-br from-purple-500 to-indigo-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+              className="bg-gray-100 text-gray-800 p-5 rounded-lg shadow hover:shadow-md transition flex flex-col items-center"
             >
-              <div className="flex flex-col items-center space-y-3">
-                <Icon className="w-10 h-10" />
-                <p className="text-xl font-bold capitalize">{pokemon.name}</p>
-              </div>
+              <Icon className="w-8 h-8 mb-2 text-gray-500" />
+              <p className="text-lg font-medium capitalize">{pokemon.name}</p>
             </div>
           );
         })}

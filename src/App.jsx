@@ -1,19 +1,19 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Entities from "./pages/Entities";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen">
-        <Navbar />
+    <Router>
+      <Navbar />
+      <div className="bg-gray-50 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/entities" element={<Entities />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
