@@ -54,4 +54,4 @@ Por defecto, Vite abre la aplicación en `http://localhost:5173`.
 ## Enlaces
 
 * **Deploy:** [Enlace al deploy](https://pokedex-explorer-react.netlify.app/)
-* **Video demostrativo:** [Enlace al video](TU_ENLACE_VIDEO)
+* **Video demostrativo:** [Enlace al video](https://youtu.be/p8OoJ00DVHw)
